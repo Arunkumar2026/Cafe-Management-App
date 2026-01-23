@@ -1,3 +1,5 @@
+#This is Cafe Management program 
+
 print("Welcome to Arun's Cafe")
 menu = {
     'Pizza': 100, 'Burger': 50, 'Salad': 70, 'Egg Puff': 30
