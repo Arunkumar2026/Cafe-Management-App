@@ -41,11 +41,33 @@ def add_to_cart():
             print(f'{qty} x {products[pid]["name"]} added into cart.')
         else:
             print('Invaid Product ID')
-    except ValueError:
+    except ValueError: #this will caught the value Error if any 
         print("Invalid Input")
 
+#This is the remove from cart function
+def remove_from_cart():
+    view_cart()
+    if not cart:
+        print("Cart is Empty")
+        return
+    try:
+        pid = int(input("Enter product ID to remove: "))
+        if pid in cart:
+            qty = int(input("Enter quantity: "))
+            current_qty = cart[pid]['quantity']
+            if qty == current_qty:
+                del cart[pid]
+                print("Item deleted from cart\n")
+            elif qty < current_qty:
+                cart[pid]['quantity'] -= qty 
+                print("Cart updated succesfully\n")
+            else:
+                print(f'You only have {current_qty}\n')
+        else:
+            print("Item not in cart")
 
-
+    except ValueError:
+        print("Invalid Input")
 
 #This is the view cart function
 def view_cart():
@@ -60,8 +82,20 @@ def view_cart():
             qty = item['quantity']
             sub_total = qty * price 
             total = total + sub_total
-            print(f'{name} x {qty} = {sub_total}/-')
+            print(f'{pid} | {name} x {qty} = {sub_total}/-')
         print(f'Total: {total}/-')
+
+#This is the checkout function
+def checkout():
+    view_cart()
+    if cart:
+        confirm = input('Proceed to checkout (y/n): ')
+        
+        if confirm == "y":
+            print("Thank you for shopping at PyMart\n")
+        else:
+            print('Checkout Cancelled\n')
+
 
 #This is the menu which shows the products to the customers.
 def menu(): 
