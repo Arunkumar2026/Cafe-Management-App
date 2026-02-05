@@ -160,6 +160,40 @@ def borrow_book(books, users):
         print("Please enter valid number")
     return books, users
 
+#this function will return the book
+def return_book(books, users):
+    user_name = input("Enter your name: ")
+
+    user = find_user(users,user_name)
+    if user == None:
+        print("User not found")
+        return books, users
+    if not user['borrowed_books']:
+        print("You have no books.\n")
+        return books, users
+    print('\n ----- Borrowed Books ------')
+    for idx, book in enumerate(user["borrowed_books"], start=1):
+        print(f'{idx}. {book["title"]} by {book["author"]}')
+    try:
+        choice = int(input("Enter book number to return: ")) - 1
+
+        if 0<= choice < len(user["borrowed_books"]):
+            returning_book = user['borrowed_books'].pop(choice)
+            for b in books:
+                if b["title"] == returning_book["title"] and b["author"] == returning_book["author"]:
+                    b["quantity"] += 1
+                    break
+            save_json(BOOK_FILE,books)
+            save_json(USER_FILE,users)
+            print(f'You returned {returning_book["title"]} successfully.\n')
+        else:
+            print("Invalid choice")
+
+    except ValueError:
+        print("Please enter a valid number\n")
+    return books, users
+
+
 #this is the main function
 def main():
     users = load_json(USER_FILE) # calling the load_json function and the returned data is stored in users variable 
