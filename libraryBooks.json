@@ -2,11 +2,21 @@
     {
         "title": "lion king",
         "author": "arun",
-        "quantity": 7
+        "quantity": 10
     },
     {
         "title": "rich Dad poor Dad",
         "author": "Robert",
         "quantity": 5
+    },
+    {
+        "title": "varanasi",
+        "author": "ss rajamouli",
+        "quantity": 1
+    },
+    {
+        "title": "varanasi",
+        "author": "ss rajamouli",
+        "quantity": 10
     }
 ]
