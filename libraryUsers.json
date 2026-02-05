@@ -1,28 +1,18 @@
 [
     {
         "name": "arun",
-        "borrowed_books": [
-            {
-                "title": "lion king",
-                "author": "arun"
-            },
-            {
-                "title": "lion king",
-                "author": "arun"
-            }
-        ]
+        "borrowed_books": []
     },
     {
         "name": "kumar",
-        "borrowed_books": [
-            {
-                "title": "lion king",
-                "author": "arun"
-            }
-        ]
+        "borrowed_books": []
     },
     {
         "name": "sunny",
+        "borrowed_books": []
+    },
+    {
+        "name": "akhil",
         "borrowed_books": []
     }
 ]
